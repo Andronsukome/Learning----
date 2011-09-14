@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Read_Write_BackUP">
+      <UniqueIdentifier>{bcf66978-ffcb-4219-bd99-a59fce9fe5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Read_Write_BackUP">
+      <UniqueIdentifier>{d80b7ebc-138a-4995-a028-5b0c5acf207e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Array">
+      <UniqueIdentifier>{98f9c93d-9434-47cb-a1c5-8c6f71a0af15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Line">
+      <UniqueIdentifier>{7779d9a0-7826-4968-8a23-9cb2f26dd34a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Array">
+      <UniqueIdentifier>{fdcd302b-7c9e-46b9-ac1b-b03d50381abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Line">
+      <UniqueIdentifier>{c948bec0-8e0e-40d5-8339-b3f4e3212d25}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackUP.h">
+      <Filter>Header Files\Read_Write_BackUP</Filter>
+    </ClInclude>
+    <ClInclude Include="Read.h">
+      <Filter>Header Files\Read_Write_BackUP</Filter>
+    </ClInclude>
+    <ClInclude Include="Write.h">
+      <Filter>Header Files\Read_Write_BackUP</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="Dot.h">
+      <Filter>Header Files\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Header Files\Line</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LineAndArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Write.cpp">
+      <Filter>Source Files\Read_Write_BackUP</Filter>
+    </ClCompile>
+    <ClCompile Include="BackUP.cpp">
+      <Filter>Source Files\Read_Write_BackUP</Filter>
+    </ClCompile>
+    <ClCompile Include="Read.cpp">
+      <Filter>Source Files\Read_Write_BackUP</Filter>
+    </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>Source Files\Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="Dot.cpp">
+      <Filter>Source Files\Line</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
