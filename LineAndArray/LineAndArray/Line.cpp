@@ -6,6 +6,12 @@ void ResizeLine()
 	//раздвинуть линию
 }
 
+bool Line::operator== (Line& Rigth)
+{
+	return (this->A.x == Rigth.A.x && this->B.x == Rigth.B.x
+		&& this->A.y == Rigth.A.y && this->B.y == Rigth.B.y);
+}
+
 double Line::GetLingthLine()
 {
 	//смещаем первую точку исходной линии в 0, а вторую сдвигаем на столько - сколько сметили 1ю
@@ -56,7 +62,7 @@ void Line::SetParallel(const Line Second)
 	this->B.y = tmpSecondDotSecondLineY + this->A.y;
 }
 
-void Line::Show(char* Name = "NoName")
+void Line::Show(char* Name)
 {
 	std::cout << Name << " Line == Dot A(" << this->A.x << ", " << this->A.y
 		<< ") and Dot B(" << this->B.x << ", " << this->B.y << ")\n";

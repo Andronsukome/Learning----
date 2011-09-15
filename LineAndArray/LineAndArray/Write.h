@@ -5,7 +5,10 @@
 
 class Write
 {
-
+	void * Data;
+public:
+	Write();
+	~Write();
 };
 
 #endif

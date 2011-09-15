@@ -3,6 +3,30 @@
 #include <algorithm>
 #include <iomanip>
 
+Array Array::operator = (Array& Rigth)
+{
+	delete [] this->m_pArr;
+	this->m_pArr = new Element [ Rigth.m_Size ];
+	this->IfSort = Rigth.IfSort;
+	this->m_CurrIdx = Rigth.m_CurrIdx;
+	this->m_FirstIdx = Rigth.m_FirstIdx;
+	this->m_LastIdx = Rigth.m_LastIdx;
+	this->m_Size = Rigth.m_Size;
+	this->m_Step = Rigth.m_Step;
+	memcpy_s(this->m_pArr, sizeof(Element) * this->m_Size, Rigth.m_pArr, sizeof(Element) * Rigth.m_Size);
+	return *this;
+}
+
+Array Array::operator + (Array& Rigth)
+{
+	Array tmp;
+
+	tmp.PushArrayBack(this->m_pArr, this->m_Size);
+	tmp.PushArrayBack(Rigth.m_pArr, Rigth.m_Size);
+
+	return tmp;
+}
+
 void Array::FreeArray()
 {
 	this->m_Size = 1;
@@ -103,14 +127,13 @@ void Array::InsertElementAtIndex(int Index, Element NewElement)
 
 void Array::Show(const char* Name)
 {
-	std::cout << Name << ":";
+	std::cout << Name << ":\n";
 
 	for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
 	{
-		if(m_CurrIdx % 20)
-			std::cout << std::setw(3) << m_pArr[ m_CurrIdx ];
-		else
+		if(!(m_CurrIdx % 20))
 			std::cout << std::endl;
+		std::cout << std::setw(3) << m_pArr[ m_CurrIdx ];
 	}
 
 	std::cout << "\nFirst Index = " << m_FirstIdx << "; Last Index = " << m_LastIdx
@@ -191,7 +214,7 @@ Array::Array(Element *Arr, int iSize)
 
 Array::Array(int iSize, int iStep)
 	:m_pArr(0), m_Size(iSize), m_Step(iStep),
-	m_CurrIdx(0), m_FirstIdx(0), m_LastIdx(1),
+	m_CurrIdx(0), m_FirstIdx(0), m_LastIdx(0),
 	IfSort(false)
 {
 	iSize <= 0 ? m_Size = 0 : m_Size;
@@ -214,7 +237,7 @@ Array::Array(const Array& Right)
 
 Array::Array()
 	:m_pArr(0), m_Size(1), m_Step(1),
-	m_CurrIdx(0), m_FirstIdx(0), m_LastIdx(1),
+	m_CurrIdx(0), m_FirstIdx(0), m_LastIdx(0),
 	IfSort(false)
 {
 	m_pArr = new Element [ m_Size ];

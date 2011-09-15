@@ -25,11 +25,11 @@ public:
 	Array();
 	~Array();
 
-	int GetSize(){return this->m_Size;};
-	int GetLastIdx(){return this->m_LastIdx;};
-	int GetFirstIdx(){return this->m_FirstIdx;};
-	int GetCurrIdx(){return this->m_CurrIdx;};
-	int GetStep(){return this->m_Step;};
+	inline int GetSize() const {return this->m_Size;};
+	inline int GetLastIdx() const {return this->m_LastIdx;};
+	inline int GetFirstIdx() const {return this->m_FirstIdx;};
+	inline int GetCurrIdx() const {return this->m_CurrIdx;};
+	inline int GetStep() const {return this->m_Step;};
 	void Show(const char* Name = "Array");//Печатает массив, принимает в качестве параметра имя печатаемого массива
 	void Sort();//Сортирует массив
 	int SearchKey(int Key);//Ищет элемент в массиве и возвращает его индекс или -1 если элемента нет
@@ -38,8 +38,9 @@ public:
 	void RemoveElementAtIndex(int Index);//Удаляет элемент из массива по индексу
 	void InsertElementAtIndex(int Index, Element NewElement);//Добавляет элемент в массив по индексу
 	void FreeArray();//освобождет память занятую массивом - НО НЕ УДАЛЯЕТ массив
-//заменим на удаление памяти	void SetLastIdx(int Idx);
-//удаляем за ненужностью	void SetAllToZero();//Обнуляет весь массив
+
+	Array operator + (Array& Rigth);
+	Array operator = (Array& Rigth);
 };
 
 #endif
