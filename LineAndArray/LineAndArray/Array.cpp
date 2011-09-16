@@ -32,8 +32,8 @@ Array Array::operator + (Array& Rigth)
 {
 	Array tmp;
 
-	tmp.PushArrayBack(this->m_pArr, this->m_Size);
-	tmp.PushArrayBack(Rigth.m_pArr, Rigth.m_Size);
+	tmp.PushArrayBack(this->m_pArr, this->m_LastIdx);
+	tmp.PushArrayBack(Rigth.m_pArr, Rigth.m_LastIdx);
 
 	return tmp;
 }

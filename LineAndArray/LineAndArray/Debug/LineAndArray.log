@@ -1,4 +1,4 @@
-﻿Build started 16.09.2011 21:59:44.
+﻿Build started 16.09.2011 22:52:03.
      1>Project "D:\Documents\Learning----\LineAndArray\LineAndArray\LineAndArray.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\LineAndArray.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.09
+Time Elapsed 00:00:00.13
