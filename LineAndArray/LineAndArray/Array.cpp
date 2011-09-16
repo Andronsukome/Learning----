@@ -3,6 +3,17 @@
 #include <algorithm>
 #include <iomanip>
 
+std::ostream& operator << (std::ostream& out, const Array& Right)
+{
+	for(int i = 0; i < Right.m_LastIdx; ++i)
+	{
+		if(!(i % 20))
+			std::cout << std::endl;
+		std::cout << std::setw(3) << Right.m_pArr[ i ];
+	}
+	return out;
+}
+
 Array Array::operator = (Array& Rigth)
 {
 	delete [] this->m_pArr;

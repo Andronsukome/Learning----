@@ -41,6 +41,8 @@ public:
 
 	Array operator + (Array& Rigth);
 	Array operator = (Array& Rigth);
+
+	friend std::ostream& operator << (std::ostream& out, const Array& Right);
 };
 
 #endif

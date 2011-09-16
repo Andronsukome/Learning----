@@ -6,6 +6,13 @@ void ResizeLine()
 	//раздвинуть линию
 }
 
+std::ostream& operator << (std::ostream& out, const Line& Right)
+{
+	out << "Line: A(" << Right.A.x << ", " << Right.A.y 
+		<< "), B(" << Right.B.x << ", " << Right.B.y << ")\n";
+	return out;
+}
+
 bool Line::operator== (Line& Rigth)
 {
 	return (this->A.x == Rigth.A.x && this->B.x == Rigth.B.x

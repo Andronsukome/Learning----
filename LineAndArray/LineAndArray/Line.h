@@ -27,6 +27,8 @@ public:
 	void Show(char* Name = "Line");
 
 	bool operator == (Line& Rigth);
+
+	friend std::ostream& operator << (std::ostream& out, const Line& Right);
 };
 
 #endif

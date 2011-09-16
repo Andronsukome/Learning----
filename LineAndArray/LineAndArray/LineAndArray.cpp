@@ -8,7 +8,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	Line A(1,2,3,4);
+	std::cout << A;
 	//if(_CrtDumpMemoryLeaks() == true)
 	//	std::cerr << "\n\n\tERROR MEMORY!!! - (_CrtDumpMemoryLeaks() == true)\n\n";
 	//else
