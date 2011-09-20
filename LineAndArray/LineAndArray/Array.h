@@ -30,7 +30,6 @@ public:
 	inline int GetFirstIdx() const {return this->m_FirstIdx;};
 	inline int GetCurrIdx() const {return this->m_CurrIdx;};
 	inline int GetStep() const {return this->m_Step;};
-	void Show(const char* Name = "Array");//Печатает массив, принимает в качестве параметра имя печатаемого массива
 	void Sort();//Сортирует массив
 	int SearchKey(int Key);//Ищет элемент в массиве и возвращает его индекс или -1 если элемента нет
 	void PushBack(Element NewElement);//Добавляет 1 элемент в конец
@@ -46,3 +45,4 @@ public:
 };
 
 #endif
+//void Show(const char* Name = "Array");//Печатает массив, принимает в качестве параметра имя печатаемого массива

@@ -1,5 +1,5 @@
-﻿Build started 16.09.2011 22:52:03.
-     1>Project "D:\Documents\Learning----\LineAndArray\LineAndArray\LineAndArray.vcxproj" on node 2 (build target(s)).
+﻿Build started 20.09.2011 20:03:55.
+     1>Project "d:\Documents\Learning----\LineAndArray\LineAndArray\LineAndArray.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\LineAndArray.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -14,8 +14,8 @@
        FinalizeBuildStatus:
          Deleting file "Debug\LineAndArray.unsuccessfulbuild".
          Touching "Debug\LineAndArray.lastbuildstate".
-     1>Done Building Project "D:\Documents\Learning----\LineAndArray\LineAndArray\LineAndArray.vcxproj" (build target(s)).
+     1>Done Building Project "d:\Documents\Learning----\LineAndArray\LineAndArray\LineAndArray.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.13
+Time Elapsed 00:00:00.03

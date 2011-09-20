@@ -7,7 +7,7 @@ std::ostream& operator << (std::ostream& out, const Array& Right)
 {
 	for(int i = 0; i < Right.m_LastIdx; ++i)
 	{
-		if(!(i % 20))
+		if(!(i % 20) && i != 0)
 			std::cout << std::endl;
 		std::cout << std::setw(3) << Right.m_pArr[ i ];
 	}
@@ -73,82 +73,84 @@ int Array::SearchKey(int Key)
 
 void Array::RemoveElementAtIndex(int Index)
 {
-	if(Index < 0 || Index >= m_Size)
+	if(Index < 0 || Index >= this->m_LastIdx)
 	{
-		std::cerr << "\n\nWrong Index!!! - (Index < 0 || Index >= m_Size)\n\n";
+		std::cerr << "Wrong Index!!! - (Index < 0 || Index >= this->m_LastIdx)\n";
 		return;
 	}
-	
-	Element* Arr = new Element [ m_LastIdx - 1 ];
-	
-	int i = 0;//используется как индекс нового массива
 
-	for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
+	--m_LastIdx;
+	Element* Arr = new Element [ m_LastIdx ];
+
+	if(0 == Index)
+		memcpy_s(Arr, sizeof(Element) * this->m_LastIdx, this->m_pArr + 1, sizeof(Element) * this->m_LastIdx);
+	else if(Index == this->m_LastIdx)
+		memcpy_s(Arr, sizeof(Element) * this->m_LastIdx, this->m_pArr, sizeof(Element) * this->m_LastIdx);
+	else
 	{
-
-		if(Index == m_CurrIdx)
-			continue;
-		else
-		{
-			Arr[ i ] = m_pArr[ m_CurrIdx ];
-			++i;
-		}
+		memcpy_s(Arr, sizeof(Element) * this->m_LastIdx, this->m_pArr, sizeof(Element) * Index);
+		memcpy_s(Arr + Index, sizeof(Element) * this->m_LastIdx, this->m_pArr + Index + 1, sizeof(Element) * this->m_LastIdx - Index);
 	}
 
 	delete [] m_pArr;
 
-	--m_LastIdx;
 	m_Size = m_LastIdx;
 	m_pArr = Arr;
+	
+	//int i = 0;//используется как индекс нового массива
+	//for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
+	//{
+	//	if(Index != m_CurrIdx)
+	//		Arr[ i ] = m_pArr[ m_CurrIdx ];
+	//		++i;
+	//	else
+	//	{
+	//		continue;
+	//	}
+	//}
 }
 
 void Array::InsertElementAtIndex(int Index, Element NewElement)
 {
-	if(Index < 0 || Index >= m_Size)
+	if(Index < 0 || Index > this->m_LastIdx)
 	{
-		std::cerr << "\n\nWrong Index!!! - (Index < 0 || Index >= m_Size)\n\n";
+		std::cerr << "Wrong Index!!! - (Index < 0 || Index > this->m_LastIdx)\n";
 		return;
 	}
 	
-	Element* Arr = new Element [ m_LastIdx + 1 ];
-	
+	if(Index == this->m_LastIdx)
+	{
+		this->PushBack(NewElement);
+		return;
+	}
+
 	++m_LastIdx;
 
-	int i = 0;//используется как индекс старого массива
-
-	for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
-	{
-
-		if(Index == m_CurrIdx)
-		{
-			Arr[ m_CurrIdx ] = NewElement;
-		}
-		else
-		{
-			Arr[ m_CurrIdx ] = m_pArr[ i ];
-			++i;
-		}
-	}
+	Element* Arr = new Element [ m_LastIdx ];
+	
+	 
+	if(0 != Index)
+		memcpy_s(Arr, sizeof(Element) * this->m_LastIdx, this->m_pArr, sizeof(Element) * Index);
+	Arr[ Index ] = NewElement;
+	memcpy_s(Arr + Index + 1, sizeof(Element) * this->m_LastIdx - Index - 1, this->m_pArr + Index, sizeof(Element) * this->m_LastIdx - Index - 1);
 
 	delete [] m_pArr;
 
 	m_Size = m_LastIdx;
 	m_pArr = Arr;
-}
-
-void Array::Show(const char* Name)
-{
-	std::cout << Name << ":\n";
-
-	for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
-	{
-		if(!(m_CurrIdx % 20))
-			std::cout << std::endl;
-		std::cout << std::setw(3) << m_pArr[ m_CurrIdx ];
-	}
-
-	std::cout << "\nFirst Index = " << m_FirstIdx << "; Last Index = " << m_LastIdx
-		<< "; Current Index = " << m_CurrIdx << "; Size = " << m_Size << "; Step = " << m_Step << ";\n\n";
+	//int i = 0;//используется как индекс старого массива
+	//for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
+	//{
+	//	if(Index != m_CurrIdx)
+	//	{
+	//		Arr[ m_CurrIdx ] = m_pArr[ i ];
+	//		++i;
+	//	}
+	//	else
+	//	{
+	//		Arr[ m_CurrIdx ] = NewElement;
+	//	}
+	//}
 }
 
 void Array::PushArrayBack(const Element* NewElements, int iSize)
@@ -259,6 +261,21 @@ Array::~Array()
 	delete [] m_pArr;
 	m_pArr = 0;
 }
+
+//void Array::Show(const char* Name)
+//{
+//	std::cout << Name << ":\n";
+//
+//	for(m_CurrIdx = 0; m_CurrIdx < m_LastIdx; ++m_CurrIdx)
+//	{
+//		if(!(m_CurrIdx % 20))
+//			std::cout << std::endl;
+//		std::cout << std::setw(3) << m_pArr[ m_CurrIdx ];
+//	}
+//
+//	std::cout << "\nFirst Index = " << m_FirstIdx << "; Last Index = " << m_LastIdx
+//		<< "; Current Index = " << m_CurrIdx << "; Size = " << m_Size << "; Step = " << m_Step << ";\n\n";
+//}
 
 //void Array::SetLastIdx(int Idx){
 //	if(Idx < 0 || Idx > m_LastIdx)
