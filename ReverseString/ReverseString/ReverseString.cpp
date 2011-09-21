@@ -11,9 +11,11 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	char String[] = "This line should be rotated";
 
-	cout << "Befor: " << String << endl;
+	cout << "Befor:\t\t\t" << String << endl;
 	reverse(String);
-	cout << "After: " << String << endl;
+	cout << "After my reverse:\t" << String << endl;
+	strrev(String);
+	cout << "After std strrev:\t" << String << endl;
 
 	return 0;
 }
