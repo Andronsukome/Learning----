@@ -8,3 +8,5 @@ ReverseString	-	how to turn a string without using additional memory
 
 Horse		-	Calculate how many unique ways in a square matrix of N by N for K steps,
 			you can move the horse to reach from the lower left to upper right corner.
+
+TureBitsInByte	-	The number of true bits in a byte
